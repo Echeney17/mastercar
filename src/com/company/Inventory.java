@@ -3,6 +3,7 @@ package com.company;
 /*
 Project: Team Project Design: Car Dealership:
 Purpose Details: Inventory Java Class
+Names: Steve Pollock + Evan Cheney
 Course: IST 242
 Team:  4
 Date Developed: 02/17/2019
@@ -38,17 +39,23 @@ public class Inventory
 
     }
     /**
-     * @param    The activity context
-     * @param ssid      Wifi Access Point to connect too
+     * @param           _car
      * @return          Connected true or false
-     * @author          Joe Oakes
+     * @author          Steve Pollock
      * @version         1.0
-     * @since           2019-04-08
+     * @since           2019-04-25
      */
     public void setCar(String _car) {
         Car = _car;
 
     }
+    /**
+     * @param           car
+     * @return          Connected true or false
+     * @author          Steve Pollock
+     * @version         1.0
+     * @since           2019-04-25
+     */
 
     public String getAccessories() {
         return Accessories;

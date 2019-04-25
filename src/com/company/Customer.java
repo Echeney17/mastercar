@@ -3,6 +3,7 @@ package com.company;
 /*
 Project: Team Project Design: Car Dealership:
 Purpose Details: Customer Java Class
+Name: Ryan Hough
 Course: IST 242
 Team:  4
 Date Developed: 02/17/2019
@@ -167,32 +168,6 @@ public class Customer {
      * @since 2019-04-24
      */
 
-
-    public static Customer addCustomer() {
-        int cCount = 1;
-        Customer cust = new Customer(cCount++);
-        //try Block to check customer Input for a string
-        try {
-
-            Scanner scnr = new Scanner(System.in);
-            System.out.println("Please Enter The Customer's First Name: ");
-            cust.setFirst(scnr.nextLine());
-            System.out.println("Please Enter The Customer's Last Name: ");
-            cust.setLast(scnr.nextLine());
-            System.out.println("Please Enter The Customer's Phone Number ");
-            cust.setphone(scnr.nextLine());
-            System.out.println("Please Enter The Customer's Buying Preference (New or Used)");
-            cust.setpreference(scnr.nextLine());
-
-        }
-        //catch block to handle exception
-        catch (InputMismatchException input) {
-            System.out.println("Please enter correct input... ");
-        }
-
-        return cust;
-
-    }
 
     /**
      * Print a list of customers added to the system

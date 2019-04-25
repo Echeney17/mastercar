@@ -1,5 +1,15 @@
 package com.company;
 
+/*
+Project: Team Project Design: Car Dealership:
+Purpose Details: Customer Java Class
+Course: IST 242
+Team:  4
+Date Developed: 02/17/2019
+Last Date Changed: 04/24/2019
+Rev: 4
+*/
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.*;
@@ -51,10 +61,11 @@ public class Main {
         final char SALES_CODE = 'T';
         final char DEAL_CODE = 'D';
         final char SALES_PERSON = 'S';
+        final char SALES_PRNT = 'O';
         final char HELP_CODE = '?';
         char userAction;
         System.out.println("Team 4 Car Dealership");
-        final String PROMPT_ACTION = "Add 'C'ustomer, 'P'rint Customer, List 'I'nventory, Add 'O'rder, List 'S'ales People or 'E'xit: ";
+        final String PROMPT_ACTION = "Add 'C'ustomer, 'P'rint Customer, List 'I'nventory, List 'S'ales People, 'O' to Print Customer Needs, or 'E'xit: ";
         final String PROMPT_INV_ACTION = "List 'C'ars, List 'A'ccessories, List 'P'arts or 'E'xit: ";
         ArrayList<Customer> cList = new ArrayList<>();
         ArrayList<Salesperson> sList = new ArrayList<>();
@@ -113,6 +124,9 @@ public class Main {
                 case SALES_PERSON:
                     sList.add(main.addListenToTheCustomersNeeds());
                     break;
+                case SALES_PRNT:
+                    Salesperson.printSalespersonideas(sList);
+                    break;
             }
 
             userAction = getAction(PROMPT_ACTION);
@@ -128,18 +142,30 @@ public class Main {
         return firstChar;
     }
 
-    public Customer addCustomer() {
+    public static Customer addCustomer() {
+        int cCount = 1;
         Customer cust = new Customer(cCount++);
-        Scanner scnr = new Scanner(System.in);
-        System.out.println("Please Enter The Customer's First Name: ");
-        cust.setFirst(scnr.nextLine());
-        System.out.println("Please Enter The Customer's Last Name: ");
-        cust.setLast(scnr.nextLine());
-        System.out.println("Please Enter The Customer's Phone Number ");
-        cust.setphone(scnr.nextLine());
-        System.out.println("Please Enter The Customer's Buying Preference (New or Used)");
-        cust.setpreference(scnr.nextLine());
+        //try Block to check customer Input for a string
+        try {
+
+            Scanner scnr = new Scanner(System.in);
+            System.out.println("Please Enter The Customer's First Name: ");
+            cust.setFirst(scnr.nextLine());
+            System.out.println("Please Enter The Customer's Last Name: ");
+            cust.setLast(scnr.nextLine());
+            System.out.println("Please Enter The Customer's Phone Number ");
+            cust.setphone(scnr.nextLine());
+            System.out.println("Please Enter The Customer's Buying Preference (New or Used)");
+            cust.setpreference(scnr.nextLine());
+
+        }
+        //catch block to handle exception
+        catch (InputMismatchException input) {
+            System.out.println("Please enter correct input... ");
+        }
+
         return cust;
+
     }
 
     public Salesperson addListenToTheCustomersNeeds() {
